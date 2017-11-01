@@ -6,7 +6,8 @@ services:
           args:
               - MOLGENIS_VERSION=5.3.0-SNAPSHOT
       ports:
-        - "8081:8080"
+        - "8080:8080"
+        - "7200:7200"
       links:
         - db
         - elasticsearch
@@ -14,7 +15,6 @@ services:
         - app-data:/opt/molgenis
       depends_on:
         - elasticsearch
-        - graphdb
         - db
         - opencpu
     db:
@@ -49,10 +49,6 @@ services:
           context: ./opencpu
         ports:
           - 8004:8004
-    graphdb:
-        image: ontotext/graphdb:8.3.1-free
-        ports:
-            - "7200:7200"
 volumes:
     db-data:
     app-data:
