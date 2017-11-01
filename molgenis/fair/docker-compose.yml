@@ -50,7 +50,7 @@ services:
         ports:
           - 8004:8004
     graphdb:
-        image: ontotext/graphdb:8.0.4-se
+        image: ontotext/graphdb:8.3.1-free
         ports:
             - "7200:7200"
 volumes:
